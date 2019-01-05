@@ -4,8 +4,8 @@
   "description": "social network",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js" ,
-    "server" : "nodemon server.js"
+    "start": "node server.js",
+    "server": "nodemon server.js"
   },
   "author": "MBAbc",
   "license": "MIT",
@@ -13,10 +13,11 @@
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
+    "gravatar": "^1.8.0",
     "jsonwebtoken": "^8.4.0",
     "mongoose": "^5.3.15",
-    "passport": "^0.4.0",
-    "passport-jwt": "^4.0.0",
+    "passport": "^0.3.2",
+    "passport-jwt": "^3.0.1",
     "validator": "^10.9.0"
   },
   "devDependencies": {
