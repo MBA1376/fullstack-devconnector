@@ -1,5 +1,5 @@
 import React , {Component} from 'react';
-import PropTypes from 'prop-types';
+import propTypes from 'prop-types';
 import {connect} from 'react-redux';
 import classnames from 'classnames';
 import {loginUser} from '../../actions/authActions';
@@ -25,6 +25,12 @@ class Login extends React.Component {
 
         if(nextProps.errors) {
             this.setState({errors : nextProps.errors});
+        }
+    }
+
+    componentDidMount() {
+        if(this.props.auth.isAuthenticated) {
+            this.props.history.push('/dashboard');
         }
     }
 
@@ -95,10 +101,10 @@ class Login extends React.Component {
    }
 }
 
-Login.PropTypes = {
-    loginUser : PropTypes.func.isRequired ,
-    errors : PropTypes.object.isRequired ,
-    auth : PropTypes.object.isRequired
+Login.propTypes = {
+    loginUser : propTypes.func.isRequired ,
+    errors : propTypes.object.isRequired ,
+    auth : propTypes.object.isRequired
 };
 
 
