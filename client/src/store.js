@@ -1,6 +1,6 @@
 import {createStore , applyMiddleware , compose} from 'redux';
 import thunk from 'redux-thunk';
-/**because root reducer name is index.js that dosn't need explain index.js name */
+/**because root reducer name is index.js  dosn't need explain index.js name */
 import rootReducer from './reducers';
 
 const initialState = {};
@@ -10,6 +10,7 @@ const middleware = [thunk];
 const store = createStore( 
     rootReducer ,
     initialState , 
+    /**this section is for redux extension */
     compose(
         applyMiddleware(...middleware) ,
         window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
