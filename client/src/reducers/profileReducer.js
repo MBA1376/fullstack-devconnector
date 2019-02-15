@@ -24,6 +24,7 @@ export default function(state = initialState , action) {
                 ...state ,
                 profile : null 
             }
+        
         default :
             return state;
     }
