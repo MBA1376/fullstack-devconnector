@@ -51,6 +51,7 @@ class CreateProfile extends Component {
             facebook : this.state.facebook ,
             instagram : this.state.instagram ,
             linkedin : this.state.linkedin ,
+            youtube : this.state.youtube
         };
 
         this.props.createProfile(profileData , this.props.history);
@@ -91,7 +92,7 @@ class CreateProfile extends Component {
             profile.instagram = !isEmpty(profile.social.instagram) ? profile.social.instagram : '';
             profile.facebook = !isEmpty(profile.social.facebook) ? profile.social.facebook : '';
             profile.youtube = !isEmpty(profile.social.youtube) ? profile.social.youtube: '';
-            profile.likedin = !isEmpty(profile.social.linkedin) ? profile.social.linkedin : '';
+            profile.linkedin = !isEmpty(profile.social.linkedin) ? profile.social.linkedin : '';
             
             //set component fields state
             this.setState({
@@ -107,6 +108,7 @@ class CreateProfile extends Component {
                 facebook : profile.facebook ,
                 instagram : profile.instagram ,
                 linkedin : profile.linkedin ,
+                youtube : profile.youtube
             });
         }
     }
@@ -139,7 +141,7 @@ class CreateProfile extends Component {
                     <InputGroup 
                         placeholder="Instagram Profile URL"
                         name="instagram"
-                        icon="fab fa-instagram"
+                        icon="fab fa-instagram" 
                         value={this.state.instagram}
                         onChange={this.onChange}
                         error = {errors.instagram}

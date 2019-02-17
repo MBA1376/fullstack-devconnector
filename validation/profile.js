@@ -28,7 +28,7 @@ const validateProfileInput = (data) => {
         }
     }
     if(!isEmpty(data.youtube)) {
-        if(!isURL(data.youtube)) {
+        if(!validator.isURL(data.youtube)) {
             errors.youtube = 'Not a valid URL';
         }
     }
