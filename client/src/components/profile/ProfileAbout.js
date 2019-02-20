@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import isEmpty from '../../validation/is-empty';
+import PropTypes from 'prop-types';
 
 class ProfileAbout extends Component {
     
@@ -40,6 +41,10 @@ class ProfileAbout extends Component {
             </div>
         );
     }
+}
+
+ProfileAbout.propTypes = {
+    profile : PropTypes.object.isRequired
 }
 
 export default ProfileAbout;
