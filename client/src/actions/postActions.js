@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {ADD_POST ,GET_POST , GET_ERRORS} from '../actions/types';
+import {ADD_POST ,GET_POSTS , GET_ERRORS , POST_LOADING} from '../actions/types';
 
 //ADD POST
 export const addPost = postData => dispatch => {
@@ -12,4 +12,25 @@ export const addPost = postData => dispatch => {
             type : GET_ERRORS ,
             payload : err.response.data
         }))
+}
+
+//GET POSTS
+export const getPosts = postData => dispatch => {
+    dispatch(setLoading());
+    axios.get('/api/posts')
+        .then( res => dispatch({
+            type : GET_POSTS ,
+            payload : res.data
+        }))
+        .catch( err => dispatch({
+            type : GET_POSTS ,
+            payload : null
+        }))
+}
+
+//set loading state
+export const setLoading = () => {
+    return {
+        type : POST_LOADING
+    }
 }
