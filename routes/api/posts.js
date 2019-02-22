@@ -79,7 +79,7 @@ router.delete('/:id' , passport.authenticate('jwt' , {session : false}) , (req ,
 router.post('/like/:id' , passport.authenticate('jwt' , {session : false}) , (req , res) => {
     Profile.findOne({user : req.user.id}).then( profile => {
         Post.findById(req.params.id).then( (post) => {
-            if(post.likes.filter( like => like.user.id.toString() === req.user.id).length > 0) {
+            if(post.likes.filter( like => like.user._id.toString() === req.user.id).length > 0) {
                 return res.status(400).json({alreadyliked : 'user already liked this post'});
             }
 
@@ -99,13 +99,13 @@ router.post('/like/:id' , passport.authenticate('jwt' , {session : false}) , (re
 router.post('/unlike/:id' , passport.authenticate('jwt' , {session : false}) , (req , res) => {
     Profile.findOne({user : req.user.id}).then( profile => {
         Post.findById(req.params.id).then( (post) => {
-            if(post.likes.filter( like => like.user.id.toString() === req.user.id).length === 0) {
+            if(post.likes.filter( like => like.user._id.toString() === req.user.id).length === 0) {
                 return res.status(400).json({notliked : 'you have not liked this post'});
             }
 
             /**get remove index */            
             const removeIndex = post.likes
-                .map( item => item.users.toString())
+                .map( item => item.user.toString())
                 .indexOf(req.user.id);
 
             /**splice out of array */
